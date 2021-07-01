@@ -1,0 +1,21 @@
+{
+    "skip_files": [
+        "test",
+        "deps",
+        "lib/ventupapi_web/views/error_helpers.ex",
+        "lib/ventupapi_web/views/error_view.ex",
+        "lib/ventupapi_web/telemetry.ex",
+        "lib/ventupapi_web/router.ex",
+        "lib/ventupapi/application.ex",
+        "lib/ventupapi_web/plugs",
+        "lib/ventupapi_web.ex",
+        "lib/ventupapi/repo.ex",
+        "lib/ventupapi.ex",
+        "lib/ventupapi_web/endpoint.ex",
+        "lib/ventupapi_web/gettext.ex"
+    ],
+    "coverage_options": {
+        "treat_no_relevant_lines_as_covered": true,
+        "minimum_coverage": 97
+    }
+}

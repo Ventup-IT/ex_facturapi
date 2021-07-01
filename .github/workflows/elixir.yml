@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        elixir: [1.11]
-        otp: [23.2]
+        elixir: [1.12]
+        otp: [24]
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.6.0
@@ -60,8 +60,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        elixir: [1.11]
-        otp: [23.2]
+        elixir: [1.12]
+        otp: [24]
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.6.0
@@ -100,8 +100,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        elixir: [1.11]
-        otp: [23.2]
+        elixir: [1.12]
+        otp: [24]
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.6.0
@@ -133,4 +133,8 @@ jobs:
       - name: Run test
         env:
           MIX_ENV: test
+          FACTURAPI_USER_KEY: fakeuserkey
+          FACTURAPI_VENTUP_ORGANIZATION_API_LIVE_KEY: fakeapilivekey
+          FACTURAPI_VENTUP_ORGANIZATION_API_TEST_KEY: faketestkey
+          FACTURAPI_VENTUP_ORGANIZATION_ID: fakeorganizationid
         run: mix test --trace --slowest 10

@@ -21,13 +21,6 @@ defmodule ExFacturapi.MixProject do
         :race_conditions,
         :unknown
       ],
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.detail": :test,
-        "coveralls.post": :test,
-        "coveralls.html": :test
-      ],
       docs: docs()
     ]
   end
@@ -59,7 +52,6 @@ defmodule ExFacturapi.MixProject do
       {:poison, "~> 3.1"},
       {:httpoison, "~> 1.7"},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.10", only: :test},
       {:dialyzex, "~> 1.2.0", only: [:dev], runtime: false},
       {:sobelow, "~> 0.8", only: :dev}
     ]

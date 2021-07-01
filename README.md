@@ -1,11 +1,8 @@
 # ExFacturapi
 
-**TODO: Add description**
+ExFacturAPI is a library to access to the FacturAPI API.
 
 ## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ex_facturapi` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -15,7 +12,45 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ex_facturapi](https://hexdocs.pm/ex_facturapi).
+## Usage Examples
 
+```elixir
+
+## List all organizations
+
+iex> ExFacturapi.Organizations.list()
+
+## Retrieve an organization
+
+iex> ExFacturapi.Organizations.retrieve("organization-id")
+
+## Create an organization
+
+iex> ExFacturapi.Organizations.create(%{name: "skynet"})
+
+## Get Organization API keys
+
+iex> ExFacturapi.Organizations.api_keys("organization-id")
+
+## Update Organization fiscal information
+
+iex> ExFacturapi.Organizations.legal("organization-id", 
+  %{
+    name: "SkyNet", 
+    legal_name: "Skynet Inc.", 
+    tax_system: "601", 
+    website: "https://sky.net", 
+    phone: "555-5555", 
+    address: %{
+      exterior: "10-b", 
+      interior: "200A", 
+      zip: "12224", 
+      street: "Bearoso st", 
+      neighborhood: "Palm Spring", 
+      city: "Los Angeles", 
+      municipality: "L.A.", 
+      state: "CA", 
+      country: "USA"
+    }
+  })
+```

@@ -4,14 +4,18 @@ clean:
 format:
 	mix format
 
+force-format:
+	find test -name '*.ex' -o -name '*.exs' | mix format --check-formatted || mix format
+	find lib -name '*.ex' -o -name '*.exs' | mix format --check-formatted || mix format
+
 precommit:
 	pre-commit run --all-files
 
 gcdeps:
 	mix deps.get && mix deps.compile
 
-test:
-	MIX_ENV=test mix test --trace --max-failures 1
+t:
+	MIX_ENV=test mix test --trace --max-failures 1 --cover
 
 test-watcher:
 	MIX_ENV=test mix test.watch

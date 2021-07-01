@@ -1,18 +1,8 @@
 defmodule ExFacturapi do
-  @moduledoc """
-  Documentation for `ExFacturapi`.
-  """
+  @client_version Mix.Project.config()[:version]
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> ExFacturapi.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  @spec version() :: String.t()
+  def version do
+    @client_version
   end
 end

@@ -1,39 +1,43 @@
+force-compile:
+	mix compile --force --warnings-as-errors
+
 clean:
 	mix deps.clean --unlock --unused
 
-format:
-	mix format
+deep-clean:
+	rm -rf _build
+	rm -rf deps
 
 force-format:
 	find test -name '*.ex' -o -name '*.exs' | mix format --check-formatted || mix format
 	find lib -name '*.ex' -o -name '*.exs' | mix format --check-formatted || mix format
 
-precommit:
-	pre-commit run --all-files
-
 gcdeps:
 	mix deps.get && mix deps.compile
 
-t:
-	MIX_ENV=test mix test --trace --max-failures 1 --cover
-
-test-watcher:
-	MIX_ENV=test mix test.watch
-
-coveralls:
-	MIX_ENV=test mix coveralls
+dev:
+	MIX_ENV=dev iex -S mix
 
 credo:
-	mix credo
+	mix credo --strict
 
 dialyzer:
-	mix dialyzer --format dialyzer --ignore-exit-status
+	MIX_DEBUG=1 mix dialyzer --ignore-exit-status --cache=false
 
 sobelow:
 	mix sobelow
 
-dev-console:
-	MIX_ENV=dev iex -S mix
+check-docs:
+	mix doctor --raise
+
+dump:
+	mix ecto.dump
 
 test-console:
 	MIX_ENV=test iex -S mix
+
+delete-compiled-statics:
+	mix phx.digest.clean --all
+
+install-dep-tools:
+	mix do local.hex --if-missing --force, local.rebar --if-missing --force

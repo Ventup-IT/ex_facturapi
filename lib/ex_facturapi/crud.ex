@@ -26,9 +26,9 @@ defmodule ExFacturapi.CRUD do
         end
       end
 
-      if :get_all in unquote(opts) do
-        @spec get_all(list()) :: map()
-        def get_all(pagination_opts \\ []) when is_list(pagination_opts) do
+      if :list in unquote(opts) do
+        @spec list(list()) :: map()
+        def list(pagination_opts \\ []) when is_list(pagination_opts) do
           Requester.request(:get, endpoint(), pagination_opts)
         end
       end

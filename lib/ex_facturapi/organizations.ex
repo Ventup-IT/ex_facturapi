@@ -1,6 +1,6 @@
 defmodule ExFacturapi.Organizations do
   alias ExFacturapi.Requester
-  use ExFacturapi.CRUD, [:get, :update, :create, :get_all, :delete]
+  use ExFacturapi.CRUD, [:get, :update, :create, :list, :delete]
 
   @spec endpoint() :: String.t()
   def endpoint do
